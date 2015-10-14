@@ -6,7 +6,18 @@ public class Motor
 	public static void main(String[] args)
 	{
 		RXTXRobot r = new ArduinoNano(); // Create RXTXRobot object
-		r.setPort("COM3"); // Set the port to COM3
+        String OSName = System.getProperty("os.name");
+        if(OSName.equals("Mac OS X"))
+        {
+            //robot.setPort("/dev/tty.wch ch341 USB=>RS232 1420");
+            r.setPort("/dev/tty.Bluetooth-Incoming-Port");
+            System.out.println(OSName);
+        }
+        else
+        {
+            r.setPort("COM3");
+            System.out.println(OSName);
+        }
 		r.setVerbose(true); // Turn on debugging messages
 		r.connect();
 		r.attachServo(RXTXRobot.SERVO1, 9); //Connect the servos to the Arduino
