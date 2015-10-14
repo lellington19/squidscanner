@@ -1,7 +1,7 @@
 // This example moves each servo individually.  While this method should be used to move one servo individually, it is recommended to use moveBothServos if both servos must be moved simultaneously
 import rxtxrobot.*;
 
-public class Motor	
+public class Motor
 {
 	public static void main(String[] args)
 	{
