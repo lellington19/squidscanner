@@ -31,6 +31,9 @@ public class Diag{
 					case "7": //conductivity reading
 						Conductivity(input, r);
 						break;
+					case "8": //gps reading
+						gps(input, r);
+						break;
           default: //offers chance at redemtion if invalid input is detected
             System.out.println("Try again");
             option = menu(input);
@@ -51,6 +54,7 @@ public class Diag{
     System.out.println("5 - Thermistor Reading");
     System.out.println("6 - Ping Sensor Readings");
 		System.out.println("7 - Conductivity Reading");
+		System.out.println("8 - GPS Readout");
     System.out.println("9 - Quit");
     System.out.print("Selection: ");
     option = input.next();
@@ -181,6 +185,20 @@ public class Diag{
 		//resist = ((1.0 - code)/(2000 * code)); //converts ADC code into voltage ?
 		ans = distance / (code * area);
 		System.out.println("The conductivity is: " + code);
+		r.close();
+	}
+
+	static void gps(Scanner input, RXTXRobot r){
+		r.connect();
+		r.attachGPS();
+
+		double[] coordinates = r.getGPSCoordinates();
+
+		System.out.println("Degrees latitude: " + coordinates[0]);
+		System.out.println("Minutes latitude: " + coordinates[1]);
+		System.out.println("Degrees longitude: " + coordinates[2]);
+		System.out.println("Minutes longitude: " + coordinates[3]);
+
 		r.close();
 	}
 }
