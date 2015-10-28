@@ -175,15 +175,15 @@ public class Diag{
   }
 	static void Conductivity(Scanner input, RXTXRobot r){
 		System.out.println("You have selected Conductivity Reading");
-		double distance = .015;
-		double area = .000625;
+		double distance = .6;
+		double area = 1;
 		double code = 0;
 		double resist = 0;
 		double ans = 0;
 		r.connect();
 		code = r.getConductivity();
-		//resist = ((1.0 - code)/(2000 * code)); //converts ADC code into voltage ?
-		ans = distance / (code * area);
+		resist = (-2000 * code)/(code -1);
+		ans = distance/(area * resist);
 		System.out.println("The conductivity is: " + code);
 		r.close();
 	}
