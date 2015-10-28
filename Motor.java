@@ -9,8 +9,8 @@ public class Motor
         String OSName = System.getProperty("os.name");
         if(OSName.equals("Mac OS X"))
         {
-            //robot.setPort("/dev/tty.wch ch341 USB=>RS232 1420");
-            r.setPort("/dev/tty.Bluetooth-Incoming-Port");
+            r.setPort("/dev/tty.wch ch341 USB=>RS232 1420");
+            //r.setPort("/dev/tty.Bluetooth-Incoming-Port");
             System.out.println(OSName);
         }
         else
