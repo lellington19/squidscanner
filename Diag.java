@@ -7,7 +7,7 @@ public class Diag{
     Scanner input = new Scanner(System.in);
 		RXTXRobot r = new ArduinoNano(); // Create RXTXRobot object
 		r.setPort("COM3"); // Set port to COM3, will need to be changed for diff comps
-    option = menu(input); //opens menu for user
+    option = menu(input); //opens menu for users
     while(!option.equals("9")){
         switch(option){
           case "1": //runs sensor diagnostic, reads out voltages and ADC codes at analogs
