@@ -1,0 +1,26 @@
+driveForward(int distance)    //drives a given distance (cm) at top speed
+turnRight()                   //turns the robot right
+turnLeft()                    //turns the robot left
+approachObject(int distance)  //approaches an object with ping sensor to a given distance
+enterSandbox()                //approaches the sandbox to 3 cm, lowers the servo, takes conductivity reading, raises servo, reverses from sand box
+climbRamp()                   //appraches the ramp to 60 cm, drives 210 cm (up the ramp), raises boom, takes air readings, lowers boom
+avoidObject(char direction)   //will catch object at 40 cm, turn right, drive until past obstacle, turn left, drive 2.5 secs, turn left, return to original position
+driveTimeLow(int time)        //drives for specified time at low speed, does not include object avoidance
+driveTimeHigh(int time)       //drives for specified time at high speed, includes object avoidance
+
+Sequence1()                   //sequence for bottom left position  (if you walk out of Blanton, close to you on the right)
+Sequence2()                   //sequence for top left position
+Sequence3()                   //sequence for top right position
+Sequence4()                   //sequence for bottom right position
+
+RXTXRobot m = new ArduinoNano(); //RXTXRobot motor object
+RXTXRobot s = new ArduinoNano(); //RXTXRobot sensor object
+int m1High = 500;             //motor1 high speed
+int m2High = -397;            //motor2 high speed
+int m1Low = 250;              //motor1 low speed
+int m2Low = -200;             //motor2 low speed
+int m1Turn = 250;             //motor1 turn speed
+int m2Turn = 215;             //motor2 turn speed
+int turnTime = 1930;          //# of milliseconds it takes to turn
+double lowV = 22.3;           //low velocity in cm/s
+double highV = 44.6;          //high velocity in cm/s
